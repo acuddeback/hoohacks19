@@ -13,6 +13,7 @@ def login(request):
 
 def signup(request):
       # Return the signup page
+    print('hitting here')
     return render(request, 'signup.block.html')
 
 def user_profile(request):
@@ -26,3 +27,12 @@ def school_profile(request):
 def terms(request):
     # Return the terms and conditions page
   return render(request, 'terms.block.html')
+
+def signup_submit(request):
+    # Subpostmit information from signup form
+  print ('RECEIVED REQUEST YO: ' + request.method)
+  if request.method == 'POST':
+    print ('WE GOT STUFF: ', request.body)
+  else:
+    print('You should make sure you have the right form method')
+  return render(request, 'user_profile.block.html')

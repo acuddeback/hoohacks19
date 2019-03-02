@@ -2,7 +2,8 @@
 
 <h1>Sign Up</h1>
 
-<form action="/sign-up/" method="post">
+<form action="submit" method="POST">
+  {% csrf_token %}
   <div class="form-group">
     <label for="firstName">User Info</label>
     <input type="text" class="form-control" id="firstName" placeholder="First Name" aria-required>
