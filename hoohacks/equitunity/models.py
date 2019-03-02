@@ -23,7 +23,7 @@ class School(models.Model):
 class Major(models.Model):
   name = models.TextField(max_length=50, blank=True, unique=True)
 
-class User(models.Model):
+class Student(models.Model):
   user = models.OneToOneField(User, on_delete=models.CASCADE)
   address = models.TextField(max_length=50, blank=True)
   inCollege = models.BooleanField(default=False)
