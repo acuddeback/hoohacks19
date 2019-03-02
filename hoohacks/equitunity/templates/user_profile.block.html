@@ -4,7 +4,7 @@
 
 <h3>Personal Information</h3>
 <form class="col-md-8">
-    <div class="form-row">   
+    <div class="form-row">
         <div class="col-md-4 mb-3">
             <label for="firstName">First name</label>
             <input class="form-control mr-sm-2" type="text" placeholder="First" value={{nameFirst}} id="firstName"
@@ -61,11 +61,53 @@
                 Please enter a college code.
             </div>
         </div>
+    </div>
+
+    <div class="form-row">
         <div class="mb-3">
             <label for="major">Major</label>
             <select class="form-control" required>
                 {% for maj in majors %}
                 {% if maj.name is major %}
+                <option value={{maj.pk}} selected>{{maj.name}}</option>
+                {% else %}
+                <option value={{maj.pk}}>{{maj.name}}</option>
+                {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="secondMaj">Second Major (optional)</label>
+            <select class="form-control" required>
+                {% for maj in majors %}
+                {% if maj.name is secondMaj %}
+                <option value={{maj.pk}} selected>{{maj.name}}</option>
+                {% else %}
+                <option value={{maj.pk}}>{{maj.name}}</option>
+                {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="mb-3">
+            <label for="minor">Minor</label>
+            <select class="form-control" required>
+                {% for maj in majors %}
+                {% if maj.name is minor %}
+                <option value={{maj.pk}} selected>{{maj.name}}</option>
+                {% else %}
+                <option value={{maj.pk}}>{{maj.name}}</option>
+                {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="secondMin">Second Minor (optional)</label>
+            <select class="form-control" required>
+                {% for maj in majors %}
+                {% if maj.name is secondMin %}
                 <option value={{maj.pk}} selected>{{maj.name}}</option>
                 {% else %}
                 <option value={{maj.pk}}>{{maj.name}}</option>
