@@ -25,7 +25,6 @@ class Major(models.Model):
 
 class Student(models.Model):
   user = models.OneToOneField(User, on_delete=models.CASCADE)
-  address = models.TextField(max_length=50, blank=True)
   inCollege = models.BooleanField(default=False)
   # college student fields, 
   college = models.ForeignKey(School, on_delete=models.CASCADE)
@@ -33,8 +32,9 @@ class Student(models.Model):
   secondMaj = models.ForeignKey(Major, on_delete=models.CASCADE, related_name="secondMaj")
   minor = models.ForeignKey(Major, on_delete=models.CASCADE, related_name="minor")
   secondMin = models.ForeignKey(Major, on_delete=models.CASCADE, related_name="secondMin")
-  hometown = models.TextField(max_length=2, blank=True)
-  interests = models.TextField(max_length=2, blank=True)
+  hometown = models.TextField(max_length=50, blank=True)
+  interests = models.TextField(max_length=140, blank=True)
+  bio = models.TextField(max_length=400, blank=True)
 
   def __str__(self):
     if(self.inCollege):
