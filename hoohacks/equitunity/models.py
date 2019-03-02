@@ -33,7 +33,7 @@ class Student(models.Model):
     dob = models.DateField(null=True, auto_now=True)
     inCollege = models.BooleanField(default=False)
     # college student fields,
-    college = models.ForeignKey(School, on_delete=models.CASCADE)
+    college = models.ForeignKey(School, on_delete=models.CASCADE, null=True)
     major = models.ForeignKey(
         Major, on_delete=models.CASCADE, related_name="major", null=True)
     secondMaj = models.ForeignKey(
