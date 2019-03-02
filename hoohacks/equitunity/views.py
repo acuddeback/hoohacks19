@@ -17,8 +17,8 @@ def signup(request):
 
 def user_profile(request):
       # Return the user profile page
-    return render(request, 'userProfile.block.html')
+    return render(request, 'user_profile.block.html')
 
 def school_profile(request):
       # Return the school profile page
-    return render(request, 'schoolProfile.block.html')
+    return render(request, 'school_profile.block.html')
