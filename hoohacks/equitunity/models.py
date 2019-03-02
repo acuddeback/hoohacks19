@@ -1,5 +1,4 @@
 from django.db import models
-#from django.contrib.gis.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
@@ -18,13 +17,13 @@ class School(models.Model):
   gRatio = models.ForeignKey(Ratio, on_delete=models.CASCADE, related_name="gRatio") # gender ratio
   fsRatio = models.ForeignKey(Ratio, on_delete=models.CASCADE, related_name="fsRatio") # factulty-student ratio
   classSize = models.PositiveIntegerField(blank=True)
+  imgUrl = models.TextField(max_length=300, blank=True)
 
 class Major(models.Model):
   name = models.TextField(max_length=50, blank=True, unique=True)
 
-class User(models.Model):
+class Student(models.Model):
   user = models.OneToOneField(User, on_delete=models.CASCADE)
-  address = models.TextField(max_length=50, blank=True)
   inCollege = models.BooleanField(default=False)
   # college student fields, 
   college = models.ForeignKey(School, on_delete=models.CASCADE)
@@ -32,8 +31,10 @@ class User(models.Model):
   secondMaj = models.ForeignKey(Major, on_delete=models.CASCADE, related_name="secondMaj")
   minor = models.ForeignKey(Major, on_delete=models.CASCADE, related_name="minor")
   secondMin = models.ForeignKey(Major, on_delete=models.CASCADE, related_name="secondMin")
-  hometown = models.TextField(max_length=2, blank=True)
-  interests = models.TextField(max_length=2, blank=True)
+  hometown = models.TextField(max_length=50, blank=True)
+  interests = models.TextField(max_length=140, blank=True)
+  bio = models.TextField(max_length=400, blank=True)
+  gradYear = models.PositiveIntegerField(blank=True)
 
   def __str__(self):
     if(self.inCollege):
