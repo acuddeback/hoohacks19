@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class User(models.Model):
@@ -18,6 +19,9 @@ class School(models.Model):
   address = models.TextField(max_length=50, blank=True)
   website = models.TextField(max_length=50, blank=True)
   acceptanceRate = models.FloatField(max_length=4, blank=True)
+  gRatio = models.PointField(help_text="Represented as Male:Female") # gender ratio
+  fsRatio = models.PointField(help_text="Represented as Factulty:Student") # factulty-student ratio
+  classSize = models.PositiveIntegerField(max_length=4, blank=True)
 
 
 
