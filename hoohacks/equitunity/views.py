@@ -17,7 +17,7 @@ def signup(request):
 
 def user_profile(request):
       # Return the user profile page
-    return render(request, 'user_profile.block.html')
+    return render(request, 'user_profile.block.html', {'nameFirst':"Will", 'nameLast':"Scheib", 'email':"wms9gv@virginia.edu", 'inCollege':True})
 
 def school_profile(request):
       # Return the school profile page

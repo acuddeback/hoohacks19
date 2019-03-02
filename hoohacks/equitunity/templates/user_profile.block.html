@@ -2,4 +2,46 @@
 
 <h1>Profile</h1>
 
+<h3>Personal Information</h3>
+<form class="col-md-8">
+    <div class="form-row">
+        <div class="col-md-4 mb-3">
+            <label for="firstName">First name</label>
+            <input class="form-control mr-sm-2" type="text" placeholder="First" value={{nameFirst}} id="firstName" required
+                aria-label="Name input" />
+            <div class="invalid-feedback">
+                Looks good!
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="lastName">Last name</label>
+            <input class="form-control mr-sm-2" type="text" placeholder="Last" value={{nameLast}} id="lastName" required
+                aria-label="Name input" />
+            <div class="invalid-feedback">
+                Please enter your last name.
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="email">Email</label>
+            <input class="form-control mr-sm-2" type="text" pattern="^[\w]+@[\w]+\.[\w]+{2,10}$" placeholder="Email" value={{email}} id="email" required
+                aria-label="Email input" />
+            <div class="invalid-feedback">
+                Please enter a valid email.
+            </div>
+        </div>
+    </div>
+    
+    {% if inCollege %}
+    <div class="form-row">
+        
+    </div>
+    {% end if %}
+
+    <div class="form-row">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            Save
+        </button>
+    </div>
+</form>
+
 {% endblock %}
