@@ -1,6 +1,7 @@
 from django.shortcuts import render
 import json 
 import requests
+from .models import *
 # Create your views here.
 
 
@@ -17,10 +18,17 @@ def signup(request):
     print('hitting here')
     return render(request, 'signup.block.html')
 
-def user_profile(request):
+def user_profile(request, pk):
+    data = requests.get('http://localhost:8000/api/student/'+str(pk))
+      # Store the data
+    data = json.loads((data.text))
+    result = data['result']
+    user = result['user']
+    school = School.objects.get(pk=result['college'])
       # Return the user profile page
     return render(request, 'user_profile.block.html',
-      {'nameFirst':"Will", 'nameLast':"Scheib", 'email':"wms9gv@virginia.edu", 'inCollege':True, 'collegeCode':4343, 'major':"Statistics",
+      {'nameFirst':user['first_name'], 'nameLast':user['last_name'], 'email':user['email'], 'inCollege':result['inCollege'],
+      'collegeCode':school.actCode, 'major':"Statistics",
       'majors':[{"pk":1,"name":"Computer Science"}, {"pk":2,"name":"Computer Engineering"}, {"pk":3,"name":"Statistics"}],
       'hometown':"Virginia Beach", 'bio':"Blah blah blah"})
 

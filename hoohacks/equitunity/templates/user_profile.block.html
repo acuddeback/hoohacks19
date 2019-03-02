@@ -33,7 +33,11 @@
 
     <div class="form-row">
         <div class="form-check">
-            <input class="form-check-input mr-sm-2" type="checkbox" value="" id="inCollege">
+            {% if inCollege == true %}
+            <input class="form-check-input mr-sm-2" type="checkbox" id="inCollege" checked>
+            {% else %}
+            <input class="form-check-input mr-sm-2" type="checkbox" id="inCollege">
+            {% endif %}
             <label for="inCollege">Current College Student</label>
         </div>
     </div>
