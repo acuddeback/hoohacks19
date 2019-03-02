@@ -1,5 +1,5 @@
-#Introduction
+# Introduction
 Team "uhh... foo bar?" at HooHacks 2019
 
-#Docker
+# Docker
 To run container, run `docker-compose up`
