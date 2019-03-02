@@ -24,7 +24,9 @@ def signup(request):
 def user_profile(request):
       # Return the user profile page
     return render(request, 'user_profile.block.html',
-      {'nameFirst':"Will", 'nameLast':"Scheib", 'email':"wms9gv@virginia.edu", 'inCollege':False})
+      {'nameFirst':"Will", 'nameLast':"Scheib", 'email':"wms9gv@virginia.edu", 'inCollege':True, 'collegeCode':4343, 'major':"Statistics",
+      'majors':[{"pk":1,"name":"Computer Science"}, {"pk":2,"name":"Computer Engineering"}, {"pk":3,"name":"Statistics"}],
+      'hometown':"Virginia Beach", 'bio':"Blah blah blah"})
 
 def school_profile(request):
       # Return the school profile page
