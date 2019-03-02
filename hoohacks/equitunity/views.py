@@ -34,7 +34,10 @@ def signup_submit(request):
     # Subpostmit information from signup form
   print ('RECEIVED REQUEST YO: ' + request.method)
   if request.method == 'POST':
-    print ('WE GOT STUFF: ', request.body)
+    print ('WE GOT STUFF: ', request.POST)
+    data = request.POST
+    # get each item individually
+    print('data is', data)
   else:
     print('You should make sure you have the right form method')
   return render(request, 'user_profile.block.html')
