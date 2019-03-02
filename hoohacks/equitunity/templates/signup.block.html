@@ -6,35 +6,62 @@
   {% csrf_token %}
   <div class="form-group">
     <label for="firstName">User Info</label>
-    <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" aria-required>
+    <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required>
+    <div class="invalid-feedback">
+        Please enter your first name.
+    </div>
+
     <label for="lastName"></label>
-    <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" aria-required>
+    <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required>
+    <div class="invalid-feedback">
+        Please enter your last name.
+    </div>
+
     <label for="dob"></label>
-    <input type="date" class="form-control" id="dob" name="dob" aria-required>
+    <input type="date" class="form-control" id="dob" name="dob" required>
+    <div class="invalid-feedback">
+        Please enter your birthdate.
+    </div>
+
     <label for="inputEmail"></label>
-    <input type="email" class="form-control" id="inputEmail" id="inputEmail" aria-describedby="emailHelp"
+    <input type="email" class="form-control" id="inputEmail" name="inputEmail" aria-describedby="emailHelp"
       placeholder="Email Address">
-    <small id="emailHelp" class="form-text text-muted" aria-required>We'll never share your email with anyone else.</small>
+    <small id="emailHelp" class="form-text text-muted" required>We'll never share your email with anyone else.</small>
+    <div class="invalid-feedback">
+        Please enter a valid email.
+    </div>
   </div>
 
   <div class="form-group">
     <label for="accountType"></label>
-    <input type="radio" id="typeHighSchool" name="accountType" value="highschool" checked aria-required> High School  
-    <input type="radio" id="typeCollege" name="accountType" value="college" aria-required> College 
+    <input type="radio" id="typeHighSchool" name="accountType" value="highschool" checked required> High School  
+    <input type="radio" id="typeCollege" name="accountType" value="college" required> College 
+    <div class="invalid-feedback">
+        Please select your account type.
+    </div>
   </div>
 
   <div class="form-group">
     <label for="inputPassword">Password</label>
-    <input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Create Password" aria-required>
+    <input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Create Password" required>
     <label for="confirmPassword"></label>
-    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" aria-required>
+    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required>
+    <div class="invalid-feedback">
+        Please ensure your passwords match.
+    </div>
   </div>
 
   <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="termsCheck" name="termsCheck" aria-required>
+    <input type="checkbox" class="form-check-input" id="termsCheck" name="termsCheck" required>
     <label class="form-check-label" for="termsCheck">I Agree to the <a href="/terms" target="_blank">Terms and Conditions</a></label>
+    {% if error %}
+    <div class="alert alert-danger" role="alert">
+     Please make sure your passwords match!
+    </div>
+    {% endif %}
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+
 
 {% endblock %}
