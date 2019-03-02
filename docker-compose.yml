@@ -8,7 +8,8 @@ services:
     ports:
       - '8000:8000'
     command: >
-      bash -c " cd ./hoohacks
+      bash -c " pip install --upgrade -r requirements.txt
+      && cd ./hoohacks
       && python manage.py makemigrations equitunity
       && python manage.py migrate equitunity
       && python manage.py makemigrations
