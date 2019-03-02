@@ -7,39 +7,36 @@
     <div class="form-row">
         <div class="col-md-4 mb-3">
             <label for="firstName">First name</label>
-            <input class="form-control mr-sm-2" type="text" placeholder="First" value={{nameFirst}} id="firstName" required
-                aria-label="Name input" />
+            <input class="form-control mr-sm-2" type="text" placeholder="First" value={{nameFirst}} id="firstName"
+                aria-label="Name input" required />
             <div class="invalid-feedback">
                 Looks good!
             </div>
         </div>
         <div class="col-md-4 mb-3">
             <label for="lastName">Last name</label>
-            <input class="form-control mr-sm-2" type="text" placeholder="Last" value={{nameLast}} id="lastName" required
-                aria-label="Name input" />
+            <input class="form-control mr-sm-2" type="text" placeholder="Last" value={{nameLast}} id="lastName"
+                aria-label="Name input" required />
             <div class="invalid-feedback">
                 Please enter your last name.
             </div>
         </div>
         <div class="col-md-4 mb-3">
             <label for="email">Email</label>
-            <input class="form-control mr-sm-2" type="text" pattern="^[\w]+@[\w]+\.[\w]+{2,10}$" placeholder="Email" value={{email}} id="email" required
-                aria-label="Email input" />
+            <input class="form-control mr-sm-2" type="text" pattern="^[\w]+@[\w]+\.[\w]+{2,10}$" placeholder="Email"
+                value={{email}} id="email" aria-label="Email input" required />
             <div class="invalid-feedback">
                 Please enter a valid email.
             </div>
         </div>
-        <div class="form-check col-md-4 mb-3">
-            <label for="inCollege">Current College Student</label>
+    </div>
+
+    <div class="form-row">
+        <div class="form-check">
             <input class="form-check-input mr-sm-2" type="checkbox" value="" id="inCollege">
+            <label for="inCollege">Current College Student</label>
         </div>
     </div>
-    
-    {% if inCollege %}
-    <div class="form-row">
-        
-    </div>
-    {% endif %}
 
     <div class="form-row">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
@@ -47,5 +44,60 @@
         </button>
     </div>
 </form>
+
+{% if inCollege %}
+<h3>College Student Details</h3>
+<form class="col-md-8">
+    <div class="form-row">
+        <div class="col-md-4 mb-3">
+            <label for="collegeCode">ACT College Code</label>
+            <input class="form-control mr-sm-2" type="text" pattern="^\d{4,}$" placeholder="xxxx" value={{collegeCode}}
+                id="collegeCode" aria-label="College input" required />
+            <div class="invalid-feedback">
+                Please enter a college code.
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="major">Major</label>
+            <select class="form-control" required>
+                {% for maj in majors %}
+                {% if maj.name is major %}
+                <option value={{maj.pk}} selected>{{maj.name}}</option>
+                {% else %}
+                <option value={{maj.pk}}>{{maj.name}}</option>
+                {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="col-md-4 mb-3">
+            <label for="hometown">Hometown</label>
+            <input class="form-control mr-sm-2" type="text" pattern="^\w+$" placeholder="Hometown" value={{hometown}}
+                id="hometown" aria-label="Hometown input" required />
+            <div class="invalid-feedback">
+                Please enter your hometown.
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="col-md-4 mb-3">
+            <label for="bio">Bio</label>
+            <textarea type="text" pattern="^\w+$" placeholder="Write a short description of yourself." id="bio" ROWS=10
+                COLS=100 aria-label="Biography input" required>{{bio}}</textarea>
+            <div class="invalid-feedback">
+                Please write a bio.
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            Save
+        </button>
+    </div>
+</form>
+{% endif %}
 
 {% endblock %}
