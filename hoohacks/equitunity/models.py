@@ -18,6 +18,7 @@ class School(models.Model):
   gRatio = models.ForeignKey(Ratio, on_delete=models.CASCADE, related_name="gRatio") # gender ratio
   fsRatio = models.ForeignKey(Ratio, on_delete=models.CASCADE, related_name="fsRatio") # factulty-student ratio
   classSize = models.PositiveIntegerField(blank=True)
+  imgUrl = models.TextField(max_length=300, blank=True)
 
 class Major(models.Model):
   name = models.TextField(max_length=50, blank=True, unique=True)
