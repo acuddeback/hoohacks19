@@ -34,13 +34,13 @@ class Student(models.Model):
     # college student fields,
     college = models.ForeignKey(School, on_delete=models.CASCADE)
     major = models.ForeignKey(
-        Major, on_delete=models.CASCADE, related_name="major")
+        Major, on_delete=models.CASCADE, related_name="major", blank=True)
     secondMaj = models.ForeignKey(
-        Major, on_delete=models.CASCADE, related_name="secondMaj")
+        Major, on_delete=models.CASCADE, related_name="secondMaj", blank=True)
     minor = models.ForeignKey(
-        Major, on_delete=models.CASCADE, related_name="minor")
+        Major, on_delete=models.CASCADE, related_name="minor", blank=True)
     secondMin = models.ForeignKey(
-        Major, on_delete=models.CASCADE, related_name="secondMin")
+        Major, on_delete=models.CASCADE, related_name="secondMin", blank=True)
     hometown = models.TextField(max_length=50, blank=True)
     interests = models.TextField(max_length=140, blank=True)
     bio = models.TextField(max_length=400, blank=True)
