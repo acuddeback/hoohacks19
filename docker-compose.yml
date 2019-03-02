@@ -9,4 +9,8 @@ services:
       - '8000:8000'
     command: >
       bash -c " cd ./hoohacks
+      && python manage.py makemigrations equitunity
+      && python manage.py migrate equitunity
+      && python manage.py makemigrations
+      && python manage.py migrate
       && python manage.py runserver 0.0.0.0:8000"
