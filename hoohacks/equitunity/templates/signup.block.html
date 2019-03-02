@@ -2,4 +2,38 @@
 
 <h1>Sign Up</h1>
 
+<form action="/sign-up/" method="post">
+  <div class="form-group">
+    <label for="firstName">User Info</label>
+    <input type="text" class="form-control" id="firstName" placeholder="First Name" aria-required>
+    <label for="lastName"></label>
+    <input type="text" class="form-control" id="lastName" placeholder="Last Name" aria-required>
+    <label for="dob"></label>
+    <input type="date" class="form-control" id="dob" aria-required>
+    <label for="inputEmail"></label>
+    <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp"
+      placeholder="Email Address">
+    <small id="emailHelp" class="form-text text-muted" aria-required>We'll never share your email with anyone else.</small>
+  </div>
+
+  <div class="form-group">
+    <label for="accountType"></label>
+    <input type="radio" id="typeHighSchool" name="accountType" value="highschool" checked aria-required> High School  
+    <input type="radio" id="typeCollege" name="accountType" value="college" aria-required> College 
+  </div>
+
+  <div class="form-group">
+    <label for="inputPassword">Password</label>
+    <input type="password" class="form-control" id="inputPassword" placeholder="Create Password" aria-required>
+    <label for="confirmPassword"></label>
+    <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password" aria-required>
+  </div>
+
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1" aria-required>
+    <label class="form-check-label" for="exampleCheck1">I Agree to the <a href="/terms" target="_blank">Terms and Conditions</a></label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
 {% endblock %}

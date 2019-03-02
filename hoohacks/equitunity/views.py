@@ -22,3 +22,7 @@ def user_profile(request):
 def school_profile(request):
       # Return the school profile page
     return render(request, 'school_profile.block.html')
+
+def terms(request):
+    # Return the terms and conditions page
+  return render(request, 'terms.block.html')
