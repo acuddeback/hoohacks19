@@ -27,12 +27,14 @@ def user_profile(request, pk):
     result = data['result']
     user = result['user']
     school = School.objects.get(pk=result['college'])
+    print(result)
       # Return the user profile page
     return render(request, 'user_profile.block.html',
       {'nameFirst':user['first_name'], 'nameLast':user['last_name'], 'email':user['email'], 'inCollege':result['inCollege'],
-      'collegeCode':school.actCode, 'major':"Statistics",
+      'collegeCode':school.actCode, 'major':result['major'], 'SecondMaj':result['secondMaj'], 'minor':result['minor'],
+      'seconMin':result['secondMin'],
       'majors':[{"pk":1,"name":"Computer Science"}, {"pk":2,"name":"Computer Engineering"}, {"pk":3,"name":"Statistics"}],
-      'hometown':"Virginia Beach", 'bio':"Blah blah blah"})
+      'hometown':result['hometown'], 'bio':result['bio']})
 
 def school_profile(request):
       # Return the school profile page
