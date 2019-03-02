@@ -1,0 +1,12 @@
+version: '2.1'
+
+services:
+  hoohacks19:
+    build: .
+    volumes:
+      - ./:/code
+    ports:
+      - '8000:8000'
+    command: >
+      bash -c " cd ./hoohacks
+      && python manage.py runserver 0.0.0.0:8000"

@@ -1,0 +1,10 @@
+version: '2.1'
+
+services:
+  hoohacks19:
+    image: hoohacks19
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
