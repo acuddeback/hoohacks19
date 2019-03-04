@@ -17,7 +17,8 @@ class School(models.Model):
   state = models.TextField(max_length=2, blank=True)
   address = models.TextField(max_length=50, blank=True)
   website = models.TextField(max_length=50, blank=True)
-  acceptanceRate = models.FloatField(max_length=4, blank=True)
+  acceptRate = models.FloatField(max_length=4, blank=True)
+
 
 
 
