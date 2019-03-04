@@ -1,0 +1,149 @@
+{% extends 'base.html' %} {% block title %}User Profile{% endblock %} {% block content %}
+
+<h1>Profile</h1>
+
+<h3>Personal Information</h3>
+<form class="col-md-8">
+    <div class="form-row">
+        <div class="col-md-4 mb-3">
+            <label for="firstName">First name</label>
+            <input class="form-control mr-sm-2" type="text" placeholder="First" value={{nameFirst}} id="firstName"
+                aria-label="Name input" required />
+            <div class="invalid-feedback">
+                Please enter your first name.
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="lastName">Last name</label>
+            <input class="form-control mr-sm-2" type="text" placeholder="Last" value={{nameLast}} id="lastName"
+                aria-label="Name input" required />
+            <div class="invalid-feedback">
+                Please enter your last name.
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="email">Email</label>
+            <input class="form-control mr-sm-2" type="text" pattern="^[\w]+@[\w]+\.[\w]+{2,10}$" placeholder="Email"
+                value={{email}} id="email" aria-label="Email input" required />
+            <div class="invalid-feedback">
+                Please enter a valid email.
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-check">
+            {% if inCollege == true %}
+            <input class="form-check-input mr-sm-2" type="checkbox" id="inCollege" checked>
+            {% else %}
+            <input class="form-check-input mr-sm-2" type="checkbox" id="inCollege">
+            {% endif %}
+            <label for="inCollege">Current College Student</label>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            Save
+        </button>
+    </div>
+</form>
+
+{% if inCollege %}
+<h3>College Student Details</h3>
+<form class="col-md-8">
+    <div class="form-row">
+        <div class="col-md-4 mb-3">
+            <label for="collegeCode">ACT College Code</label>
+            <input class="form-control mr-sm-2" type="text" pattern="^\d{4,}$" placeholder="xxxx" value={{collegeCode}}
+                id="collegeCode" aria-label="College input" required />
+            <div class="invalid-feedback">
+                Please enter a college code.
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="mb-3">
+            <label for="major">Major</label>
+            <select class="form-control" required>
+                {% for maj in majors %}
+                {% if maj.name is major %}
+                <option value={{maj.pk}} selected>{{maj.name}}</option>
+                {% else %}
+                <option value={{maj.pk}}>{{maj.name}}</option>
+                {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="secondMaj">Second Major (optional)</label>
+            <select class="form-control" required>
+                {% for maj in majors %}
+                {% if maj.name is secondMaj %}
+                <option value={{maj.pk}} selected>{{maj.name}}</option>
+                {% else %}
+                <option value={{maj.pk}}>{{maj.name}}</option>
+                {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="mb-3">
+            <label for="minor">Minor</label>
+            <select class="form-control" required>
+                {% for maj in majors %}
+                {% if maj.name is minor %}
+                <option value={{maj.pk}} selected>{{maj.name}}</option>
+                {% else %}
+                <option value={{maj.pk}}>{{maj.name}}</option>
+                {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="secondMin">Second Minor (optional)</label>
+            <select class="form-control" required>
+                {% for maj in majors %}
+                {% if maj.name is secondMin %}
+                <option value={{maj.pk}} selected>{{maj.name}}</option>
+                {% else %}
+                <option value={{maj.pk}}>{{maj.name}}</option>
+                {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="col-md-4 mb-3">
+            <label for="hometown">Hometown</label>
+            <input class="form-control mr-sm-2" type="text" pattern="^\w+$" placeholder="Hometown" value={{hometown}}
+                id="hometown" aria-label="Hometown input" required />
+            <div class="invalid-feedback">
+                Please enter your hometown.
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="col-md-4 mb-3">
+            <label for="bio">Bio</label>
+            <textarea type="text" pattern="^\w+$" placeholder="Write a short description of yourself." id="bio" ROWS=10
+                COLS=100 aria-label="Biography input" required>{{bio}}</textarea>
+            <div class="invalid-feedback">
+                Please write a bio.
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            Save
+        </button>
+    </div>
+</form>
+{% endif %}
+
+{% endblock %}
